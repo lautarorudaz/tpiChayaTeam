@@ -1,0 +1,12 @@
+.div_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.div_items{
+    display: flex;
+    flex-direction:row ;
+    gap:60px;
+    
+}
