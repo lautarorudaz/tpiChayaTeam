@@ -15,3 +15,17 @@
     background-image: url(/media/fondo_index.jpg);
     background-size:contain;
 }
+
+.fondo_verde{
+    background-color: rgb(90, 187, 90);
+    
+}
+
+.fondo_blanco{
+    background-color: white;
+}
+
+.div_items div a{
+    color: aliceblue;
+    text-decoration: none;
+}
