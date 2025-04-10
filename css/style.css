@@ -270,5 +270,33 @@
 
   .iconos_footer{
     display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
 
+  .iconos_footer div a img{
+    height: 50px;
+    width: 50px;
+  }
+
+  .copy{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .copy p{
+    font-size: 30px;
+  }
+
+  .navegacion_footer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .navegacion_footer a{
+    text-decoration: none;
+    color: #000000;
+    gap: 5px;
   }
