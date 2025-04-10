@@ -10,3 +10,8 @@
     gap:60px;
     
 }
+
+.fondo_imagen{
+    background-image: url(/media/fondo_index.jpg);
+    background-size:contain;
+}
