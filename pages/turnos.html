@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Turnos</title>
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    <main>
+        <div>
+            <h2>Turnos</h2>
+        </div>
+        <div>
+
+            <div class="formulario">
+                <form action="/enviar" method="post">
+
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>       
+
+                    <div>
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div>
+                        <label for="mensaje">Mensaje:</label><br>
+                        <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Enviar">
+                    </div>
+
+
+                </form>
+            </div>
+
+            <div class="calendario">
+                <div>
+                    <form>
+                        <label for="fecha">Seleccioná una fecha:</label>
+                        <input type="date" id="fecha" name="fecha">
+
+                        <input type="date" id="fecha" name="fecha"
+                        min="2024-01-01"
+                        max="2025-12-31"
+                        value="2025-04-10">
+
+                  </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>

@@ -162,11 +162,6 @@
     align-items: center;
     height: 390px;
     width: 100%;
-    
-    
-    
-    
-
 }
 
 .fondo_verde div h3{
@@ -266,13 +261,16 @@
  
   .footer_p{
     background-color: #725C3A;
-    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+
   }
 
   .iconos_footer{
     display: flex;
     justify-content: center;
     gap: 60px;
+    margin-top: 30px;
   }
 
   .iconos_footer div a img{
@@ -303,3 +301,94 @@
   }
 
   
+.main_sesion{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.icono_sesion{
+  margin-top: 50px;
+}
+.titulo_sesion{
+  margin-top: 30px;
+}
+.titulo_sesion h2{
+  font-size: 50px;
+}
+.icono_sesion img{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.formulario{
+  margin-top: 40px;
+}
+
+
+
+
+.footer_sesion{
+  background-color: #725C3A;
+  display: flex;
+  flex-direction: column;
+  margin-top: 170px;
+}
+
+.login-container {
+  border: 1px solid #ccc;
+  padding: 30px 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.btn-login {
+  width: 100%;
+  background: linear-gradient(to right, #f0f, #f8c);
+  color: #000;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-create {
+  margin-top: 20px;
+  background: #f9f9f9;
+  padding: 8px 20px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-create:hover {
+  background-color: #eee;
+}
