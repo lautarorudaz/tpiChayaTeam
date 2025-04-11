@@ -3,70 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA Turnos</title>
+    <title>Turnos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <header class="header_propiedades">
+        <nav>
+            <div class="div_nav">
 
-    <header>
-
-    </header>
-
-    <main>
-        <div>
-            <h2>Turnos</h2>
-        </div>
-        <div>
-
-            <div class="formulario">
-                <form action="/enviar" method="post">
-
-                    <div>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required>
-
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" required>
-                    </div>       
-
-                    <div>
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div>
-                        <label for="mensaje">Mensaje:</label><br>
-                        <textarea id="mensaje" name="mensaje" rows="4" cols="40"></textarea>
-                    </div>
-
-                    <div>
-                        <input type="submit" value="Enviar">
-                    </div>
-
-
-                </form>
-            </div>
-
-            <div class="calendario">
                 <div>
-                    <form>
-                        <label for="fecha">Seleccioná una fecha:</label>
-                        <input type="date" id="fecha" name="fecha">
+                    <img src="/media/5487eaf3-a4c8-416a-91cd-43f6e44d1fe2.jpg" alt=""class="icono_nav">
+                </div>
 
-                        <input type="date" id="fecha" name="fecha"
-                        min="2024-01-01"
-                        max="2025-12-31"
-                        value="2025-04-10">
 
-                  </form>
+                <div class="div_items">
+
+                    <div>
+                        <a href="/index.html">INICIO</a>
+                    </div>
+
+                    <div>
+                        <a href="/pages/servicios.html">SERVICIOS</a>
+                    </div>
+
+                    <div>
+                        <a href="/pages/turnos.html">TURNOS</a>
+                    </div>
+                    <div>
+                        <a href="/pages/noticias.html">NOTICIAS</a>
+                    </div>
+
+
+                </div>
+
+                <div class="login">
+                    <a href="/pages/sesion.html">INICIAR SESION</a>
                 </div>
 
             </div>
-        </div>
-    </main>
 
-    <footer>
-
-    </footer>
-    
-</body>
-</html>
+        </nav>
+    </header>
