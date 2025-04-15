@@ -392,3 +392,97 @@ input[type="password"] {
 .btn-create:hover {
   background-color: #eee;
 }
+
+.div_principal_servicios{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+}
+.cuadro_masajes h2,
+.cuadro_belleza h2,
+.cuadro_faciales h2,
+.cuadro_corporal h2 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 30px;
+}
+
+
+.cuadro_masajes,
+.cuadro_belleza,
+.cuadro_faciales,
+.cuadro_corporal {
+  position: relative;
+  width: 25%;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cuadro_masajes,
+.cuadro_belleza,
+.cuadro_faciales,
+.cuadro_corporal {
+  position: relative;
+  width: 25%;
+  height: 800px;
+  overflow: hidden;
+}
+
+/* Fondo oscuro con imagen y efecto */
+.cuadro_masajes::before,
+.cuadro_belleza::before,
+.cuadro_faciales::before,
+.cuadro_corporal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease-in-out, background-color 1.2s ease-in-out;
+  z-index: 1;
+}
+
+/* Imagenes específicas */
+.cuadro_masajes::before {
+  background-image: url(/media/masajes.jpg);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cuadro_belleza::before {
+  background-image: url(/media/belleza.jpg);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cuadro_faciales::before {
+  background-image: url(/media/facial.jpg);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cuadro_corporal::before {
+  background-image: url(/media/corporal.jpg);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Hover: oscurecer más y hacer zoom */
+.cuadro_masajes:hover::before,
+.cuadro_belleza:hover::before,
+.cuadro_faciales:hover::before,
+.cuadro_corporal:hover::before {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.main_noticias{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+
+
+
+
