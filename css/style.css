@@ -480,6 +480,17 @@ input[type="password"] {
   display: flex;
   flex-direction: row;
   justify-content:space-between;
+  width: auto;
+  height: auto;
+}
+
+.chamu_noticias{
+  margin-top: 60px;
+  margin-left: 60px;
+}
+
+.items_noticias{
+
 }
 
 
