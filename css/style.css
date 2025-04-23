@@ -493,8 +493,11 @@ input[type="password"] {
   padding: 20px;
   gap: 10px;
   margin-bottom: 40px;
+  max-width: 1200px;
 }
-
+.divs_sectiondos div p{
+  text-align:center;
+}
 .divs_sectiondos div button{
   padding: 10px 20px;
   border-radius: 8px;
@@ -726,8 +729,8 @@ textarea {
 }
 
 .diseño_cartas div {
-  height: 200px;
-  width: 200px;
+  height: 800px;
+  width: 400px;
   background-color: #ba716e;
 }
 
@@ -745,4 +748,54 @@ textarea {
   align-items: center;
   margin-top: 60px;
   margin-left: 60px;
+}
+
+.diseño_cartas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carta {
+  width: 250px;
+  height: 400px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.carta:hover {
+  transform: scale(1.05);
+}
+
+.carta img {
+  height: 65%; /* Solo ocupa la mitad de la carta */
+  width: 100%;
+  object-fit: cover;
+}
+
+.carta .texto {
+  height: 35%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.carta h3 {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
+}
+
+.carta p {
+  margin: 5px 0 0;
+  font-size: 20px;
+  color: #666;
 }
