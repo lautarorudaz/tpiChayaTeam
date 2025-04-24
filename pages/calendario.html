@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/prueba.css">
+</head>
+<body>
+<div class="container">
+    <h1>Calendario de Turnos</h1>
+    
+    <div class="nav">
+      <button id="prev">« Anterior</button>
+      <h2 id="monthYear"></h2>
+      <button id="next">Siguiente »</button>
+    </div>
+  
+    <div class="calendar" id="calendar">
+      <!-- Días de la semana -->
+      <div class="weekday">Dom</div>
+      <div class="weekday">Lun</div>
+      <div class="weekday">Mar</div>
+      <div class="weekday">Mié</div>
+      <div class="weekday">Jue</div>
+      <div class="weekday">Vie</div>
+      <div class="weekday">Sáb</div>
+    </div>
+  
+    <div class="slots" id="slots" style="display:none;">
+      <h2>Turnos para el <span id="selected-date"></span></h2>
+      <div id="slot-list"></div>
+    </div>
+  
+    
+</div>
+
+<script src="/js/calendario.js"></script>
+</div>
+</body>
+</html>

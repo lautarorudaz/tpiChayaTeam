@@ -8,7 +8,7 @@
 }
 
 .header_propiedades{
-    background-color: #f5dee8;
+    background-color: #ffd3e6;
     height: 95px;
     width: 100%;
 }
@@ -52,19 +52,22 @@
     align-items: center;
     height: 30px;
     width: 90px;
-    background-color: #e4d3db;
-    border: 2px slod black;
-    transition: all 0.3s ease;
-    border-radius: 12%;
+    background-color: #e081bc; /* Rosa claro */
+    border: none;
+    color: #222;
+    padding: 5px 18px;
+    margin: 5px;
+    border-radius: 12px; /* MÁS redondeado */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
     
 }
 
 .div_items div:hover{
-    filter: brightness(85%);   
-    transform: scale(1.05);    
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #f9b5cd; /* Color más intenso al pasar el mouse */
+  transform: scale(1.05);
 }
-
 .icono_nav{
     height:70px;
     width: 70px;
@@ -81,7 +84,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f3aacb;
+    background-color: #fcd0d0;
     height: 30px ;
     width: 130px;
     margin-top: 35px;
@@ -621,13 +624,19 @@ input[type="password"] {
   flex-direction: column;
 }
 
+.titulo_turnos{
+ display: flex;
+ justify-content: center;
+ margin-top: 40px;
+}
+
 .turno_sectionuno{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   height: 100%;
   width: 100%;
-  margin-top: 40px;
+  
 
 }
 
@@ -887,4 +896,124 @@ textarea {
   margin: 5px 0 0;
   font-size: 20px;
   color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container_cal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  
+}
+
+.container_cal h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.nav_cal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+.nav_cal button {
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff5f86;
+}
+
+#monthYear {
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  min-width: 160px;
+  text-align: center;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 500px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.weekday {
+  font-weight: bold;
+  background-color: #f8c5d4;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.day {
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #fff0f5;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.day:hover {
+  background-color: #ffc4d6;
+}
+
+.day.selected {
+  background-color: #ff6699;
+  color: white;
+}
+
+.slots {
+  margin-top: 25px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 300px;
+}
+
+.slots h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #333;
+}
+
+.slot {
+  margin: 8px 0;
+  padding: 10px;
+  background: #ffeef5;
+  border-left: 4px solid #ff6699;
+  border-radius: 6px;
+  font-weight: bold;
 }
