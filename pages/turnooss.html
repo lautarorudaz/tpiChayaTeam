@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header_propiedades">
+        <nav>
+            <div class="div_nav">
+
+                <div>
+                    <img src="/media/icono_navn.png" alt=""class="icono_nav">
+                </div>
+
+
+                <div class="div_items">
+
+                    <div>
+                        <a href="/index.html">INICIO</a>
+                    </div>
+
+                    <div>
+                        <a href="/pages/servicios.html">SERVICIOS</a>
+                    </div>
+
+                    <div>
+                        <a href="/pages/contacto.html">CONTACTO</a>
+                    </div>
+                    <div>
+                        <a href="/pages/noticias.html">NOTICIAS</a>
+                    </div>
+                    <div>
+                        <a href="/pages/turnooss.html">TURNOS</a>
+                    </div>
+
+
+                </div>
+
+                <div class="login">
+                    <a href="/pages/sesion.html">INICIAR SESION</a>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+<div class="container_turnos">
+    <div class="left-content">
+      <h2>Reservá tu momento de paz</h2>
+      <p>Ofrecemos una variedad de servicios personalizados para tu bienestar.</p>
+      <p>Elegí entre masajes, tratamiento faciales, corporales y de belleza con sus respectivas secciones</p>
+      <p>Seleccioná tu sesión favorita y disfrutá del cuidado que merecés.</p>
+    </div>
+
+    <div class="right-content">
+      <div class="card_turnos">
+        <img src="https://via.placeholder.com/100" alt="Servicio 1">
+        <h4>Masajes</h4>
+        <p>Sesión de 1 hora</p>
+        <p>Desde $3.700</p>
+        <button>Reservar</button>
+      </div>
+
+      <div class="card_turnos">
+        <img src="https://via.placeholder.com/100" alt="Servicio 2">
+        <h4>Tratamientos faciales</h4>
+        <p>Sesión de 1 hora</p>
+        <p>Desde $3.100</p>
+        <button>Reservar</button>
+      </div>
+
+      <div class="card_turnos">
+        <img src="https://via.placeholder.com/100" alt="Servicio 3">
+        <h4>Tratamiento corporales</h4>
+        <p>Sesión de 1.5 horas</p>
+        <p>Desde $5.700</p>
+        <button>Reservar</button>
+      </div>
+
+      <div class="card_turnos">
+        <img src="https://via.placeholder.com/100" alt="Servicio 4">
+        <h4>Tratamiento de belleza</h4>
+        <p>Sesión de 1.5 horas</p>
+        <p>Desde $4.800</p>
+        <button>Reservar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container_cal">
+    <h1>Calendario de Turnos</h1>
+    
+    <div class="nav_cal">
+      <button id="prev">« Anterior</button>
+      <h2 id="monthYear"></h2>
+      <button id="next">Siguiente »</button>
+    </div>
+  
+    <div class="calendar" id="calendar">
+      <!-- Días de la semana -->
+      <div class="weekday">Dom</div>
+      <div class="weekday">Lun</div>
+      <div class="weekday">Mar</div>
+      <div class="weekday">Mié</div>
+      <div class="weekday">Jue</div>
+      <div class="weekday">Vie</div>
+      <div class="weekday">Sáb</div>
+    </div>
+  
+    <div class="slots" id="slots" style="display:none;">
+      <h2>Turnos para el <span id="selected-date"></span></h2>
+      <div id="slot-list"></div>
+    </div>
+  
+    
+</div>
+</main>
+
+<script src="/js/calendario.js"></script>
+</div>
+</body>
+</html>

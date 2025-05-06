@@ -1,103 +1,90 @@
-
-const calendar = document.getElementById('calendar');
-const slotsDiv = document.getElementById('slots');
-const slotList = document.getElementById('slot-list');
-const selectedDateText = document.getElementById('selected-date');
-const monthYearText = document.getElementById('monthYear');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-
-const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+const turnosPorFecha = {
+  "2025-05-05": [
+    { hora: "10:00", profesional: "Laura Pérez", codigo: "LP1005" },
+    { hora: "14:00", profesional: "Martín Díaz", codigo: "MD1405" }
+  ],
+  "2025-05-12": [
+    { hora: "09:00", profesional: "Ana Torres", codigo: "AT0905" },
+    { hora: "15:30", profesional: "Juan Gil", codigo: "JG1530" }
+  ]
+};
 
 let currentDate = new Date();
-let currentMonth = currentDate.getMonth();
-let currentYear = currentDate.getFullYear();
+const monthYear = document.getElementById('monthYear');
+const calendarBody = document.getElementById('calendar-body');
 
-function renderCalendar(month, year) {
-  calendar.innerHTML = `
-    <div class="weekday">Dom</div>
-    <div class="weekday">Lun</div>
-    <div class="weekday">Mar</div>
-    <div class="weekday">Mié</div>
-    <div class="weekday">Jue</div>
-    <div class="weekday">Vie</div>
-    <div class="weekday">Sáb</div>
-  `;
+function renderCalendar(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
 
-  monthYearText.textContent = `${months[month]} ${year}`;
+  monthYear.textContent = `${date.toLocaleString('es', { month: 'long' })} ${year}`;
+  calendarBody.innerHTML = '';
 
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+  let row = document.createElement('tr');
   for (let i = 0; i < firstDay; i++) {
-    const empty = document.createElement('div');
-    calendar.appendChild(empty);
+    row.appendChild(document.createElement('td'));
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const dayEl = document.createElement('div');
-    dayEl.className = 'day';
-    dayEl.textContent = day;
+    if (row.children.length === 7) {
+      calendarBody.appendChild(row);
+      row = document.createElement('tr');
+    }
 
-    dayEl.addEventListener('click', () => {
-      document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
-      dayEl.classList.add('selected');
+    const td = document.createElement('td');
+    td.textContent = day;
 
-      const selectedDate = new Date(year, month, day);
-      selectedDateText.textContent = selectedDate.toLocaleDateString();
-
-      const slots = [
-        "09:00 - 10:00",
-        "10:30 - 11:30",
-        "12:00 - 13:00",
-        "15:00 - 16:00",
-        "17:30 - 18:30"
-      ];
-
-      slotList.innerHTML = '';
-      slots.forEach(slot => {
-        const slotEl = document.createElement('div');
-        slotEl.className = 'slot';
-        slotEl.textContent = slot;
-        slotList.appendChild(slotEl);
-      });
-
-      slotsDiv.style.display = 'block';
+    td.addEventListener('click', () => {
+      document.querySelectorAll('.calendar-table td').forEach(cell => cell.classList.remove('active'));
+      td.classList.add('active');
+      mostrarTurnos(day, month + 1, year);
     });
 
-    calendar.appendChild(dayEl);
+    row.appendChild(td);
   }
+
+  while (row.children.length < 7) {
+    row.appendChild(document.createElement('td'));
+  }
+
+  calendarBody.appendChild(row);
 }
 
-prevBtn.addEventListener('click', () => {
-  currentMonth--;
-  if (currentMonth < 0) {
-    currentMonth = 11;
-    currentYear--;
+function mostrarTurnos(dia, mes, anio) {
+  const fecha = `${anio}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+  const turnos = turnosPorFecha[fecha] || [];
+
+  const contenedor = document.getElementById('turnos-container');
+  const lista = document.getElementById('lista-turnos');
+  const fechaTexto = document.getElementById('fecha-seleccionada');
+
+  fechaTexto.textContent = `${dia}/${mes}/${anio}`;
+  lista.innerHTML = '';
+
+  if (turnos.length === 0) {
+    lista.innerHTML = '<li>No hay turnos disponibles.</li>';
+  } else {
+    turnos.forEach(t => {
+      const li = document.createElement('li');
+      li.textContent = `Hora: ${t.hora}, Profesional: ${t.profesional}, Código: ${t.codigo}`;
+      lista.appendChild(li);
+    });
   }
-  renderCalendar(currentMonth, currentYear);
+
+  contenedor.style.display = 'block';
+}
+
+document.getElementById('prev').addEventListener('click', () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar(currentDate);
 });
 
-nextBtn.addEventListener('click', () => {
-  currentMonth++;
-  if (currentMonth > 11) {
-    currentMonth = 0;
-    currentYear++;
-  }
-  renderCalendar(currentMonth, currentYear);
+document.getElementById('next').addEventListener('click', () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar(currentDate);
 });
 
-renderCalendar(currentMonth, currentYear);
-
-document.addEventListener('click', function(event) {
-    const calendar = document.getElementById('calendar');
-    const slots = document.getElementById('slots');
-  
-    if (
-      !calendar.contains(event.target) &&
-      !slots.contains(event.target)
-    ) {
-      slots.style.display = 'none';
-    }
-  });
+renderCalendar(currentDate);

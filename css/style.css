@@ -620,8 +620,10 @@ input[type="password"] {
 
 
 .main_turnos{
-  display: flex;
+  display: flex ;
   flex-direction: column;
+ 
+  align-items: center;
 }
 
 .titulo_turnos{
@@ -632,12 +634,10 @@ input[type="password"] {
 
 .turno_sectionuno{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
+  flex-direction: row;
   height: 100%;
   width: 100%;
-  
-
 }
 
 
@@ -912,17 +912,101 @@ textarea {
 
 
 
+
+
+
+
+.container_turnos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.left-content {
+  flex: 1;
+  margin-top: 100px;
+  
+}
+
+.left-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.left-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.right-content {
+  flex: 2;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card_turnos {
+
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+}
+
+.card_turnos img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.card_turnos h4 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.card_turnos p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.card_turnos button {
+  background-color: #d38bc9;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card_turnos button:hover {
+  background-color: #1f2b20;
+}
+
+
+
+
+
+h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
 .container_cal {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 800px;
-  
-}
-
-.container_cal h1 {
-  margin-bottom: 10px;
-  color: #333;
+  margin: 0 auto;
 }
 
 .nav_cal {
@@ -934,7 +1018,7 @@ textarea {
   margin: 20px 0;
 }
 
-.nav_cal button {
+button {
   background-color: #ff85a2;
   color: white;
   border: none;
