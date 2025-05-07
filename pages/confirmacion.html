@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Confirmar Turno</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="calendar-container">
+    <h2>Confirmación de turno</h2>
+    <div class="turno" id="info-turno">
+      Cargando datos del turno...
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const datos = {
+      fecha: params.get("fecha"),
+      hora: params.get("hora"),
+      profesional: params.get("profesional"),
+      duracion: params.get("duracion"),
+      modalidad: params.get("modalidad")
+    };
+
+    const contenedor = document.getElementById("info-turno");
+    contenedor.innerHTML = `
+      <p><strong>Fecha:</strong> ${datos.fecha}</p>
+      <p><strong>Hora:</strong> ${datos.hora}</p>
+      <p><strong>Profesional:</strong> ${datos.profesional}</p>
+      <p><strong>Duración:</strong> ${datos.duracion}</p>
+      <p><strong>Modalidad:</strong> ${datos.modalidad}</p>
+      <br>
+      <button onclick="confirmar()">Confirmar Turno</button>
+    `;
+
+    function confirmar() {
+      alert("✅ Turno confirmado (simulado)");
+      // Aquí podrías hacer una solicitud POST a tu backend
+      window.location.href = "../index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,90 +1,103 @@
-const turnosPorFecha = {
-  "2025-05-05": [
-    { hora: "10:00", profesional: "Laura Pérez", codigo: "LP1005" },
-    { hora: "14:00", profesional: "Martín Díaz", codigo: "MD1405" }
-  ],
-  "2025-05-12": [
-    { hora: "09:00", profesional: "Ana Torres", codigo: "AT0905" },
-    { hora: "15:30", profesional: "Juan Gil", codigo: "JG1530" }
-  ]
-};
+const calendar = document.getElementById("calendar");
+const monthYear = document.getElementById("monthYear");
+const turnos = document.getElementById("turnos");
 
-let currentDate = new Date();
-const monthYear = document.getElementById('monthYear');
-const calendarBody = document.getElementById('calendar-body');
+let currentDate = new Date(2025, 0); // Inicia en enero 2025
 
-function renderCalendar(date) {
-  const year = date.getFullYear();
-  const month = date.getMonth();
+const diasSemana = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
-  monthYear.textContent = `${date.toLocaleString('es', { month: 'long' })} ${year}`;
-  calendarBody.innerHTML = '';
+document.getElementById("prevMonth").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar();
+});
 
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+document.getElementById("nextMonth").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar();
+});
 
-  let row = document.createElement('tr');
-  for (let i = 0; i < firstDay; i++) {
-    row.appendChild(document.createElement('td'));
+function renderCalendar() {
+  calendar.innerHTML = "";
+  monthYear.textContent = currentDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric"
+  });
+
+  // Cabecera de días
+  diasSemana.forEach(dia => {
+    const div = document.createElement("div");
+    div.textContent = dia;
+    calendar.appendChild(div);
+  });
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  const firstDay = new Date(year, month, 1);
+  const startingDay = (firstDay.getDay() + 6) % 7; // Ajustar domingo al final
+
+  const lastDate = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < startingDay; i++) {
+    const empty = document.createElement("div");
+    calendar.appendChild(empty);
   }
 
-  for (let day = 1; day <= daysInMonth; day++) {
-    if (row.children.length === 7) {
-      calendarBody.appendChild(row);
-      row = document.createElement('tr');
-    }
+  for (let day = 1; day <= lastDate; day++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("day");
+    dayDiv.textContent = day;
 
-    const td = document.createElement('td');
-    td.textContent = day;
-
-    td.addEventListener('click', () => {
-      document.querySelectorAll('.calendar-table td').forEach(cell => cell.classList.remove('active'));
-      td.classList.add('active');
+    dayDiv.addEventListener("click", () => {
+      document.querySelectorAll(".day").forEach(el => el.classList.remove("selected"));
+      dayDiv.classList.add("selected");
       mostrarTurnos(day, month + 1, year);
     });
 
-    row.appendChild(td);
+    calendar.appendChild(dayDiv);
   }
-
-  while (row.children.length < 7) {
-    row.appendChild(document.createElement('td'));
-  }
-
-  calendarBody.appendChild(row);
 }
 
 function mostrarTurnos(dia, mes, anio) {
-  const fecha = `${anio}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-  const turnos = turnosPorFecha[fecha] || [];
-
-  const contenedor = document.getElementById('turnos-container');
-  const lista = document.getElementById('lista-turnos');
-  const fechaTexto = document.getElementById('fecha-seleccionada');
-
-  fechaTexto.textContent = `${dia}/${mes}/${anio}`;
-  lista.innerHTML = '';
-
-  if (turnos.length === 0) {
-    lista.innerHTML = '<li>No hay turnos disponibles.</li>';
-  } else {
-    turnos.forEach(t => {
-      const li = document.createElement('li');
-      li.textContent = `Hora: ${t.hora}, Profesional: ${t.profesional}, Código: ${t.codigo}`;
-      lista.appendChild(li);
-    });
+    const fecha = `${anio}-${String(mes).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
+  
+    const modalidades = ["Masajes", "Tratamiento facial", "Tratamiento de belleza"];
+    const turnosEjemplo = [
+      {
+        hora: "09:00 AM",
+        profesional: "Dr. Ramírez",
+        duracion: "30 minutos",
+        modalidad: modalidades[Math.floor(Math.random() * modalidades.length)],
+      },
+      {
+        hora: "10:30 AM",
+        profesional: "Lic. Martínez",
+        duracion: "45 minutos",
+        modalidad: modalidades[Math.floor(Math.random() * modalidades.length)],
+      }
+    ];
+  
+    turnos.innerHTML = turnosEjemplo.map(t => {
+      const params = new URLSearchParams({
+        fecha,
+        hora: t.hora,
+        profesional: t.profesional,
+        duracion: t.duracion,
+        modalidad: t.modalidad
+      });
+  
+      return `
+        <div class="turno" onclick="window.location.href='confirmacion.html?${params.toString()}'">
+          <p><strong>Fecha:</strong> ${fecha}</p>
+          <p><strong>Hora:</strong> ${t.hora}</p>
+          <p><strong>Profesional:</strong> ${t.profesional}</p>
+          <p><strong>Duración:</strong> ${t.duracion}</p>
+          <p><strong>Modalidad:</strong> ${t.modalidad}</p>
+          <p class="seleccionar-texto">Seleccionar turno</p>
+        </div>
+      `;
+    }).join('');
   }
+  
 
-  contenedor.style.display = 'block';
-}
-
-document.getElementById('prev').addEventListener('click', () => {
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  renderCalendar(currentDate);
-});
-
-document.getElementById('next').addEventListener('click', () => {
-  currentDate.setMonth(currentDate.getMonth() + 1);
-  renderCalendar(currentDate);
-});
-
-renderCalendar(currentDate);
+renderCalendar(); // Inicializa el calendario

@@ -48,82 +48,68 @@
         </nav>
     </header>
 
+    <main class="main_deturnos">
+        
+    <section class="blog-section">
+      <h2 class="blog-title">RESERVÁ TU TURNO</h2>
+      <p class="blog-subtitle">Revisá nuestro blog para conocer novedades y promociones.</p>
+  
+      <div class="blog-grid">
+        <div class="blog-card">
+          <img src="https://via.placeholder.com/300x180?text=Masajes" alt="Masajes">
+          <div class="blog-content">
+            <p class="blog-category">MASAJES</p>
+            <h3 class="blog-heading">MASAJES</h3>
+            <p class="blog-description">Selecciona uno de nuestros tantos servicios de masajes.</p>
+            <button class="blog-button">LEER MÁS</button>
+          </div>
+        </div>
+  
+        <div class="blog-card">
+          <img src="https://via.placeholder.com/300x180?text=Bienestar" alt="Tratamiento facial">
+          <div class="blog-content">
+            <p class="blog-category">FACIAL</p>
+            <h3 class="blog-heading">TRATAMIENTOS</h3>
+            <p class="blog-description">Redescubrí tu conexión cuerpo y mente en nuestro spa.</p>
+            <button class="blog-button">LEER MÁS</button>
+          </div>
+        </div>
+  
+        <div class="blog-card">
+          <img src="https://via.placeholder.com/300x180?text=Apertura" alt="Tratamiento de belleza">
+          <div class="blog-content">
+            <p class="blog-category">BELLEZA</p>
+            <h3 class="blog-heading">TRATAMIENTOS</h3>
+            <p class="blog-description">Sentite vos misma con nuestors tratamientos de belleza.</p>
+            <button class="blog-button">LEER MÁS</button>
+          </div>
+        </div>
+  
+        <div class="blog-card">
+          <img src="https://via.placeholder.com/300x180?text=Facial" alt="No me acuerdo">
+          <div class="blog-content">
+            <p class="blog-category">ASD ASD</p>
+            <h3 class="blog-heading">ASD ASD</h3>
+            <p class="blog-description">Aprendé cómo cuidar tu piel en casa entre tratamientos.</p>
+            <button class="blog-button">LEER MÁS</button>
+          </div>
+        </div>
+      </div>
+  </section>
 
-    <main>
-<div class="container_turnos">
-    <div class="left-content">
-      <h2>Reservá tu momento de paz</h2>
-      <p>Ofrecemos una variedad de servicios personalizados para tu bienestar.</p>
-      <p>Elegí entre masajes, tratamiento faciales, corporales y de belleza con sus respectivas secciones</p>
-      <p>Seleccioná tu sesión favorita y disfrutá del cuidado que merecés.</p>
+  <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth">◀</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth">▶</button>
+      </div>
+      <div class="calendar" id="calendar"></div>
     </div>
-
-    <div class="right-content">
-      <div class="card_turnos">
-        <img src="https://via.placeholder.com/100" alt="Servicio 1">
-        <h4>Masajes</h4>
-        <p>Sesión de 1 hora</p>
-        <p>Desde $3.700</p>
-        <button>Reservar</button>
-      </div>
-
-      <div class="card_turnos">
-        <img src="https://via.placeholder.com/100" alt="Servicio 2">
-        <h4>Tratamientos faciales</h4>
-        <p>Sesión de 1 hora</p>
-        <p>Desde $3.100</p>
-        <button>Reservar</button>
-      </div>
-
-      <div class="card_turnos">
-        <img src="https://via.placeholder.com/100" alt="Servicio 3">
-        <h4>Tratamiento corporales</h4>
-        <p>Sesión de 1.5 horas</p>
-        <p>Desde $5.700</p>
-        <button>Reservar</button>
-      </div>
-
-      <div class="card_turnos">
-        <img src="https://via.placeholder.com/100" alt="Servicio 4">
-        <h4>Tratamiento de belleza</h4>
-        <p>Sesión de 1.5 horas</p>
-        <p>Desde $4.800</p>
-        <button>Reservar</button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container_cal">
-    <h1>Calendario de Turnos</h1>
+  
+    <div class="turnos" id="turnos"></div>
     
-    <div class="nav_cal">
-      <button id="prev">« Anterior</button>
-      <h2 id="monthYear"></h2>
-      <button id="next">Siguiente »</button>
-    </div>
-  
-    <div class="calendar" id="calendar">
-      <!-- Días de la semana -->
-      <div class="weekday">Dom</div>
-      <div class="weekday">Lun</div>
-      <div class="weekday">Mar</div>
-      <div class="weekday">Mié</div>
-      <div class="weekday">Jue</div>
-      <div class="weekday">Vie</div>
-      <div class="weekday">Sáb</div>
-    </div>
-  
-    <div class="slots" id="slots" style="display:none;">
-      <h2>Turnos para el <span id="selected-date"></span></h2>
-      <div id="slot-list"></div>
-    </div>
-  
+    </main>
     
-</div>
-</main>
-
-<script src="/js/calendario.js"></script>
-</div>
+    <script src="/js/calendario.js"></script>
 </body>
 </html>
