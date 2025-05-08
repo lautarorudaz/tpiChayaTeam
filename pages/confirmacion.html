@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Confirmar Turno</title>
-  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-  <div class="calendar-container">
-    <h2>Confirmación de turno</h2>
-    <div class="turno" id="info-turno">
-      Cargando datos del turno...
-    </div>
-  </div>
+  <h1>Confirmar Turno</h1>
+  <div id="detalleTurno"></div>
+  <button onclick="confirmarTurno()">Confirmar</button>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const datos = {
+    const turno = {
       fecha: params.get("fecha"),
       hora: params.get("hora"),
       profesional: params.get("profesional"),
@@ -23,21 +19,34 @@
       modalidad: params.get("modalidad")
     };
 
-    const contenedor = document.getElementById("info-turno");
+    const contenedor = document.getElementById("detalleTurno");
     contenedor.innerHTML = `
-      <p><strong>Fecha:</strong> ${datos.fecha}</p>
-      <p><strong>Hora:</strong> ${datos.hora}</p>
-      <p><strong>Profesional:</strong> ${datos.profesional}</p>
-      <p><strong>Duración:</strong> ${datos.duracion}</p>
-      <p><strong>Modalidad:</strong> ${datos.modalidad}</p>
-      <br>
-      <button onclick="confirmar()">Confirmar Turno</button>
+      <p><strong>Fecha:</strong> ${turno.fecha}</p>
+      <p><strong>Hora:</strong> ${turno.hora}</p>
+      <p><strong>Profesional:</strong> ${turno.profesional}</p>
+      <p><strong>Duración:</strong> ${turno.duracion}</p>
+      <p><strong>Modalidad:</strong> ${turno.modalidad}</p>
     `;
 
-    function confirmar() {
-      alert("✅ Turno confirmado (simulado)");
-      // Aquí podrías hacer una solicitud POST a tu backend
-      window.location.href = "../index.html";
+    function confirmarTurno() {
+      let turnosGuardados = JSON.parse(localStorage.getItem("misTurnos")) || [];
+
+      // Evitar duplicados
+      const existe = turnosGuardados.some(t =>
+        t.fecha === turno.fecha &&
+        t.hora === turno.hora &&
+        t.profesional === turno.profesional
+      );
+
+      if (!existe) {
+        turnosGuardados.push(turno);
+        localStorage.setItem("misTurnos", JSON.stringify(turnosGuardados));
+        alert("Turno confirmado y guardado en 'Mis Turnos'");
+        window.location.href = "misturnos.html"; // Redirigir si querés
+      } else {
+        alert("Este turno ya está guardado.");
+        window.location.href = "misturnos.html";
+      }
     }
   </script>
 </body>
