@@ -1331,7 +1331,7 @@ textarea {
   display: none;
 }
 
-@media (max-width: 1043px) {
+@media (max-width: 1340px) {
   .div_nav {
     display: flex;
     flex-direction: column;
