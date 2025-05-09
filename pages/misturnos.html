@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="es">
 <body>
-    
+    <h2>Mis Turnos</h2>
+    <div id="misTurnos"></div>
+    <link rel="stylesheet" href="/css/misturnos.css">
+    <title>Mis turnos</title>
+    <link rel="shortcut icon" href="/media/icono_oficial.png" type="image/x-icon">
+
+    <script>
+        // Recuperar turnos guardados
+        let turnosGuardados = JSON.parse(localStorage.getItem("misTurnos")) || [];
+        const contenedorTurnos = document.getElementById("misTurnos");
+
+        // Función para mostrar los turnos
+        function mostrarTurnos() {
+            contenedorTurnos.innerHTML = turnosGuardados.length > 0
+                ? turnosGuardados.map((turno, index) => `
+                    <div class="turno">
+                        <p><strong>Fecha:</strong> ${turno.fecha}</p>
+                        <p><strong>Hora:</strong> ${turno.hora}</p>
+                        <p><strong>Profesional:</strong> ${turno.profesional}</p>
+                        <p><strong>Duración:</strong> ${turno.duracion}</p>
+                        <p><strong>Modalidad:</strong> ${turno.modalidad}</p>
+                        <button onclick="eliminarTurno(${index})">Eliminar</button>
+                    </div>
+                `).join("")
+                : "<p>No tienes turnos confirmados aún.</p>";
+        }
+
+        // Función para eliminar turno
+        function eliminarTurno(index) {
+            turnosGuardados.splice(index, 1);
+            localStorage.setItem("misTurnos", JSON.stringify(turnosGuardados));
+            mostrarTurnos(); // Actualizar la lista de turnos después de eliminar
+        }
+
+        // Mostrar los turnos al cargar la página
+        mostrarTurnos();
+    </script>
 </body>
 </html>
+
