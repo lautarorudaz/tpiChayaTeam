@@ -16,6 +16,7 @@
                     <img src="/media/icono_oficial.png" alt=""class="icono_nav">
                 </div>
 
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
                 <div class="div_items">
 
@@ -114,5 +115,17 @@
 
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+          const menu = document.querySelector('.div_items');
+          if (menu.style.transform === 'translateX(0%)') {
+            menu.style.transform = 'translateX(-100%)';
+          } else {
+            menu.style.transform = 'translateX(0%)';
+            menu.style.display = 'flex'; // Por si no estaba visible
+          }
+        }
+      </script>
 </body>
 </html>
