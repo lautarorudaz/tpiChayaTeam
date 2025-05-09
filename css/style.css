@@ -24,7 +24,6 @@
 .div_items{
     display: flex;
     flex-direction:row ;
-    
     gap:60px;
     margin-top: 35px;
     
@@ -44,6 +43,7 @@
 .div_items div a{
     color: rgb(0, 0, 0);
     text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
 }
 .div_items div{
@@ -51,7 +51,7 @@
     justify-content: center;
     align-items: center;
     height: 30px;
-    width: 90px;
+    width: 140px;
     background-color: #f5cbe7; /* Rosa claro */
     border: none;
     color: #222;
@@ -414,6 +414,7 @@ section.servicios {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .icono_sesion{
@@ -510,6 +511,7 @@ input[type="password"] {
   color: white;
   text-align: center;
   font-size: 2rem;
+  font-family:sans-serif;
   padding-top: 30px;
 }
 
@@ -746,6 +748,7 @@ textarea {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .info-card {
@@ -1378,4 +1381,200 @@ textarea {
     top: 10px;
     z-index: 2000;
   }
+}
+
+
+section.tips-spa {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+section.tips-spa h2 {
+  text-align: center;
+  color: #2e7d6b;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  background-color: #e8f5f1;
+  border-left: 5px solid #2e7d6b;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.tip:hover {
+  transform: scale(1.02);
+}
+
+.tip-number {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 20px;
+  color: #2e7d6b;
+}
+
+.tip-text {
+  font-size: 1em;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .tip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tip-number {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-spa {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.footer-title {
+  font-size: 1rem;
+  color: #eaeaea;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #bfbfbf;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-email {
+  color: #ff6f61;
+  margin-bottom: 8px;
+}
+
+.footer-phone {
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.footer-socials a {
+  margin-right: 10px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.footer-socials img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-address {
+  color: #bfbfbf;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 0.9em;
+  color: #aaa;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+
+
+.info_deequipo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.imagenynombre{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.imagenynombre div img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.titulo_team{
+  margin-top: 8px;
+}
+
+.titulo_team h3{
+  font-size: 30px;
+}
+
+.nombresintegrantes{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
